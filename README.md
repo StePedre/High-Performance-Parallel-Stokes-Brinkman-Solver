@@ -55,7 +55,7 @@ Developed by **Group 1** under the supervision of **Prof. Franco Auteri**:
   - Structure-of-Arrays (SoA) layout for vector fields
 - **Communication**:
   - Non-blocking halo exchanges
-- **Performance**:
+- **Performance** (laptop environment):
   - Near-linear strong scaling for low core counts  
   - Measured speed: ≈ **0.48 μs per cell-step**  
   - Speedup at 4 cores: **S₄ ≈ 3.3**
@@ -74,8 +74,11 @@ Current limitations include:
   - Fields stored as separate objects  
   - Future improvement: single contiguous memory block to reduce TLB misses
 - **I/O**:
-  - Output currently serialized on master rank  
-  - Parallel I/O planned for large-scale runs
+  - Output currently distributed across MPI ranks  
+  - Future improvement: use better formats (e.g., .VTP)
+- **Scalability**:
+  - Tested up to 8 MPI ranks only (laptop environment)  
+  - Further testing on HPC clusters needed
 
 ---
 
@@ -135,7 +138,7 @@ The solver has been validated through:
    - Couette–Poiseuille flow
    - Hagen–Poiseuille flow with Brinkman penalization for circular geometries
 
-3. **Scalability Tests**
+3. **Scalability Tests** (laptop environment!)
    - Near-linear strong scaling up to 4 MPI ranks
    - Robust weak scaling on distributed grids
 
